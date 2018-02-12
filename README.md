@@ -19,7 +19,7 @@ The goals / steps of this project are the following:
 [image3]: ./images/right.jpg "image from right camera"
 [image4]: ./images/original.jpg "original image"
 [image5]: ./images/flipped.jpg "flipped image"
-[image5]: ./images/figure_1.png ""
+[image6]: ./images/figure_1.png ""
 
 ---
 ### Model Architecture and Training Strategy
