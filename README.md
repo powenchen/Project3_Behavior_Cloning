@@ -95,7 +95,7 @@ To capture good driving behavior, I recorded 15 minutes of data using center lan
 ![alt text][image2]
 ![alt text][image3]
 
-To augment the data sat, I also flipped images using fliplr() in python's numpy module and multiply the original steering angle by -1. For example, here is an image that has then been flipped(lwft: original image, right: flipped image):
+To augment the data sat, I also flipped images using fliplr() in python's numpy module and multiply the original steering angle by -1. For example, here is an image that has then been flipped(left: original image, right: flipped image):
 
 ![alt text][image4]
 ![alt text][image5]
