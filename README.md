@@ -33,8 +33,7 @@ The overall architecture is shown below:
 |:---------------------:|:---------------------------------------------:| 
 | Input         		| 160x320x3 Color image 	  					| 
 | Normalization     	| realized with "lambda x:x/255.0-0.5"		 	|
-| Cropping				| cropped the top 70 rows and bottom 25 rows 	|
-|						| of pixels										|
+| Cropping				| cropped the top 70 rows and bottom 25 rows of pixels										|
 | Convolution 5x5  		| nb_filter = 24, strides = 2x2, use RELU as 	|
 |						| activation method								|
 | Convolution 5x5  		| nb_filter = 36, strides = 2x2, use RELU as 	|
