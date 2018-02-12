@@ -14,11 +14,11 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./images/left.jpg ""
-[image2]: ./images/center.jpg ""
-[image3]: ./images/right.jpg ""
-[image4]: ./images/original.jpg ""
-[image5]: ./images/flipped.jpg ""
+[image1]: ./images/left.jpg "image from left camera"
+[image2]: ./images/center.jpg "image from center camera"
+[image3]: ./images/right.jpg "image from right camera"
+[image4]: ./images/original.jpg "original image"
+[image5]: ./images/flipped.jpg "flipped image"
 
 ---
 ### Model Architecture and Training Strategy
