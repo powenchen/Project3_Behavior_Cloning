@@ -1,9 +1,5 @@
 # **Behavioral Cloning** 
 
-## Writeup Template
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
 ---
 
 **Behavioral Cloning Project**
@@ -18,45 +14,42 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
-
-## Rubric Points
-### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
+[image1]: ./images/placeholder.png 
 
 ---
-### Files Submitted & Code Quality
-
-#### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
-
-My project includes the following files:
-* model.py containing the script to create and train the model
-* drive.py for driving the car in autonomous mode
-* model.h5 containing a trained convolution neural network 
-* writeup_report.md or writeup_report.pdf summarizing the results
-
-#### 2. Submission includes functional code
-Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
-```sh
-python drive.py model.h5
-```
-
-#### 3. Submission code is usable and readable
-
-The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
-
 ### Model Architecture and Training Strategy
 
 #### 1. An appropriate model architecture has been employed
 
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
+First of all, my model will preprocess the data by normalizing and cropping.
 
-The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
+After preprocessing, my model has 5 convolution2D layers followed by 1 flatten layer followed by 5 fully-connected layers(model.py lines 84-98) 
+
+The model includes RELU layers to introduce nonlinearity (code line 88-92). 
+
+The overall architecture is shown below:
+
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 160x320x3 Color image 	  					| 
+| Normalization     	| realized with "lambda x:x/255.0-0.5"		 	|
+| Cropping				| cropped the top 70 rows and bottom 25 rows 	|
+|						| of pixels										|
+| Convolution 5x5  		| nb_filter = 24, strides = 2x2, use RELU as 	|
+|						| activation method								|
+| Convolution 5x5  		| nb_filter = 36, strides = 2x2, use RELU as 	|
+|						| activation method								|
+| Convolution 5x5  		| nb_filter = 48, strides = 2x2, use RELU as 	|
+|						| activation method								|
+| Convolution 3x3  		| nb_filter = 64, use RELU as activation method	|
+| Convolution 3x3  		| nb_filter = 64, use RELU as activation method	|
+| Flatten				| flatten the output from last layer 			|
+| Fully Connected Layer	| output dimension = 100						|
+| Fully Connected Layer	| output dimension = 50							|
+| Fully Connected Layer	| output dimension = 10							|
+| Fully Connected Layer	| output dimension = 5							|
+| Fully Connected Layer	| output dimension = 1							|
+
 
 #### 2. Attempts to reduce overfitting in the model
 
