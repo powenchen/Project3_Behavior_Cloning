@@ -19,6 +19,7 @@ The goals / steps of this project are the following:
 [image3]: ./images/right.jpg "image from right camera"
 [image4]: ./images/original.jpg "original image"
 [image5]: ./images/flipped.jpg "flipped image"
+[image5]: ./images/figure_1.png ""
 
 ---
 ### Model Architecture and Training Strategy
@@ -104,7 +105,9 @@ After the collection process, I had 11634 data points. I then preprocessed this 
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as evidenced by the decreasing trend of val_error print outs indicated by keras. I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as evidenced by the decreasing trend of validation loss shown in visualization.
+![alt text][image6]
+I used an adam optimizer so that manually training the learning rate wasn't necessary.
 
 However, as I mentioned in the previous section, my behavior cloning output left the center line a little bit, that is because I've deviated from the center line several times in the 15 minutes recording. Since this model is only doing behavior cloning, this simple approach is severely vulnerable by imperfect data.
 
