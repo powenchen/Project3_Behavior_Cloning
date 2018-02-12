@@ -14,11 +14,11 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./images/left.jpg 
-[image2]: ./images/center.jpg 
-[image3]: ./images/right.jpg 
-[image4]: ./images/original.jpg 
-[image5]: ./images/flipped.jpg 
+[image1]: ./images/left.jpg ""
+[image2]: ./images/center.jpg ""
+[image3]: ./images/right.jpg ""
+[image4]: ./images/original.jpg ""
+[image5]: ./images/flipped.jpg ""
 
 ---
 ### Model Architecture and Training Strategy
