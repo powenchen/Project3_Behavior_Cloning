@@ -26,7 +26,7 @@ The goals / steps of this project are the following:
 
 #### 1. An appropriate model architecture has been employed
 
-First of all, my model will preprocess the data by normalizing and cropping.
+First of all, my model will preprocess the data by cropping and normalizing.
 
 After preprocessing, my model has 5 convolution2D layers followed by 1 flatten layer followed by 5 fully-connected layers(model.py lines 64-78) 
 
@@ -70,8 +70,8 @@ Here is the architecture of my final model:
 | Layer         		|     Description	        									| 
 |:---------------------:|:-------------------------------------------------------------:| 
 | Input         		| 160x320x3 Color image 	  									| 
-| Normalization     	| realized with "lambda x:x/255.0-0.5"		 					|
 | Cropping				| cropped the top 70 rows and bottom 25 rows of pixels			|
+| Normalization     	| realized with "lambda x:x/255.0-0.5"		 					|
 | Convolution 5x5  		| nb_filter = 24, strides = 2x2, use RELU as activation method	|
 | Convolution 5x5  		| nb_filter = 36, strides = 2x2, use RELU as activation method	|
 | Convolution 5x5  		| nb_filter = 48, strides = 2x2, use RELU as activation method	|

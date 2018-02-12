@@ -9,6 +9,7 @@ from random import shuffle
 from sklearn.model_selection import train_test_split
 import sklearn
 import matplotlib.pyplot as plt
+from PIL import Image
 
 def generator(samples, batch_size=32):
 	num_samples = len(samples)
@@ -21,9 +22,9 @@ def generator(samples, batch_size=32):
 			angles = []
 			correction = 0.12 # this is a parameter to tune
 			for batch_sample in batch_samples:
-				center_image = cv2.imread(batch_sample[0])
-				left_image = cv2.imread(batch_sample[1])
-				right_image = cv2.imread(batch_sample[2])
+				center_image = np.asarray(Image.open(batch_sample[0]),dtype=np.uint8)
+				left_image = np.asarray(Image.open(batch_sample[1]),dtype=np.uint8)
+				right_image = np.asarray(Image.open(batch_sample[2]),dtype=np.uint8)
 				center_angle = float(batch_sample[3])
 				left_angle = center_angle + correction
 				right_angle = center_angle - correction
@@ -47,7 +48,6 @@ with open('data/driving_log.csv') as csv_file:
 train_samples, validation_samples = train_test_split(lines, test_size=0.2)
 
 images = []
-image_names = []
 measurements = []
 
 train_generator = generator(train_samples, batch_size=32)
@@ -55,12 +55,11 @@ validation_generator = generator(validation_samples, batch_size=32)
 
 X_train = np.array(images)
 y_train = np.array(measurements)
-
 dropout_rate = 0.5
 
 model = Sequential()
-model.add(Lambda(lambda x:x/255.0-0.5,input_shape=(160,320,3)))
-model.add(Cropping2D(cropping=((70,25), (0,0)), input_shape=(3,160,320)))
+model.add(Cropping2D(cropping=((70,25), (0,0)), input_shape=(160,320,3)))
+model.add(Lambda(lambda x:x/255.0-0.5,input_shape=(65,320,3)))
 
 model.add(Convolution2D(24,5,5,subsample=(2,2),activation='relu'))
 model.add(Convolution2D(36,5,5,subsample=(2,2),activation='relu'))
